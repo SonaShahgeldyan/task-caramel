@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { RoutesConstants } from "../helpers/route.helper";
 import Register from "../pages/Register/Register";
 import Reports from "../pages/Reports/Reports";
@@ -8,7 +8,7 @@ import WebsiteDetails from "../pages/WebsiteDetails/WebsiteDetails";
 
 export default function AppRoutes() {
   return (
-    <Router>
+    <Routes>
       <Route path={RoutesConstants.register()} element={<Register />} />
       <Route path={RoutesConstants.login()} element={<Login />} />
       <Route path={RoutesConstants.reports()} element={<Reports />} />
@@ -17,6 +17,6 @@ export default function AppRoutes() {
         path={RoutesConstants.website(":id")}
         element={<WebsiteDetails />}
       />
-    </Router>
+    </Routes>
   );
 }
