@@ -10,7 +10,7 @@ export const RegisterFormSchema = Yup.object().shape({
     .matches(/[a-z]/, "Password requires a lowercase letter")
     .matches(/[A-Z]/, "Password requires an uppercase letter")
     .matches(/[^\w]/, "Password requires a symbol"),
-  confirmPassword: Yup.string()
+  password_confirmation: Yup.string()
     .required()
     .oneOf([Yup.ref("password")], 'Must match "password" field value'),
 });
