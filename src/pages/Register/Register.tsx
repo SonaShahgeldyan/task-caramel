@@ -7,17 +7,16 @@ import PasswordInput from "../../components/PasswordInput";
 import { sendRegistrationData } from "../../services/register.service";
 import { RegisterFormSchema } from "../../schemas/register/register.schema";
 import InputField from "../../components/Input";
-import { setAuthTrue } from "../../store/slices/register/RegisterSlice";
+import { setRegisterTrue } from "../../store/slices/register/RegisterSlice";
 import { useDispatch } from "react-redux";
 
 export default function Register() {
   const dispatch = useDispatch();
   const handleSubmit = async (data: IRegisterData) => {
     if (data.password === data.password_confirmation) {
-      const res = await sendRegistrationData(data);
+      await sendRegistrationData(data);
 
-      localStorage.setItem("token", JSON.stringify(res.access_token));
-      dispatch(setAuthTrue());
+      dispatch(setRegisterTrue());
     }
   };
 
@@ -31,7 +30,7 @@ export default function Register() {
             enableReinitialize
             validationSchema={RegisterFormSchema}
           >
-            {({ getFieldProps }) => (
+            {(props) => (
               <Form name="filters-1">
                 <Field
                   name="name"

@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const authSlice = createSlice({
-  name: "auth",
+const registerSlice = createSlice({
+  name: "register",
   initialState: {
-    isAuth: false,
+    isRegister: false,
   },
   reducers: {
-    setAuthTrue: (state) => {
-      state.isAuth = true;
+    setRegisterTrue: (state) => {
+      state.isRegister = true;
     },
-    setAuthFalse: (state) => {
-      state.isAuth = false;
+    setRegisterFalse: (state) => {
+      state.isRegister = false;
     },
   },
 });
 
-export const { setAuthTrue, setAuthFalse } = authSlice.actions;
+export const { setRegisterTrue, setRegisterFalse } = registerSlice.actions;
 
-export default authSlice.reducer;
+export default registerSlice.reducer;
