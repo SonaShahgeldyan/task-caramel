@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 
 export default function Register() {
   const dispatch = useDispatch();
+
   const handleSubmit = async (data: IRegisterData) => {
     if (data.password === data.password_confirmation) {
       const res = await sendRegistrationData(data);
