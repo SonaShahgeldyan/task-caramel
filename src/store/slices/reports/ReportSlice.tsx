@@ -27,7 +27,6 @@ const dataSlice = createSlice({
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
-
         state.fetchedData = action.payload;
       })
       .addCase(fetchData.rejected, (state, action) => {

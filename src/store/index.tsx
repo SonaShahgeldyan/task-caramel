@@ -3,12 +3,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import reportsReducer from "./slices/reports/ReportSlice";
 import registerReducer from "./slices/register/RegisterSlice";
 import authReducer from "./slices/login/LoginSlice";
+import websiteReducer from "./slices/websites/WebsiteSlice";
 
 export const store = configureStore({
   reducer: {
     register: registerReducer,
     auth: authReducer,
     reports: reportsReducer,
+    websites: websiteReducer,
   },
 });
 
