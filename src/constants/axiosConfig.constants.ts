@@ -1,12 +1,23 @@
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.REACT_APP_API;
+const apiClient = axios.create({
+  baseURL: process.env.REACT_APP_API,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "X-Requested-With": "XMLHttpRequest",
+  },
+});
 
-axios.defaults.headers.common = {
-  ...axios.defaults.headers.common,
-  Accept: "application/json",
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${localStorage.getItem("token")}`,
-};
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-export default axios;
+export default apiClient;

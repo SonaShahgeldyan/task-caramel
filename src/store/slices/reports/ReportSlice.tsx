@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { IReportsDataState } from "../../../types/reports.type";
 import { getReportsData } from "../../../services/reports.service";
 
 const initialState: IReportsDataState = {
-  fetchedData: undefined,
+  fetchedData: [],
   loading: false,
   error: null,
 };
@@ -28,7 +27,7 @@ const dataSlice = createSlice({
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action);
+
         state.fetchedData = action.payload;
       })
       .addCase(fetchData.rejected, (state, action) => {

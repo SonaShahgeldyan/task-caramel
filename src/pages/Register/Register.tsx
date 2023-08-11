@@ -9,6 +9,7 @@ import { RegisterFormSchema } from "../../schemas/register/register.schema";
 import InputField from "../../components/Input";
 import { setRegisterTrue } from "../../store/slices/register/RegisterSlice";
 import { useDispatch } from "react-redux";
+import React from "react";
 
 export default function Register() {
   const dispatch = useDispatch();

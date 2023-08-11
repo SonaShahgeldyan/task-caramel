@@ -1,7 +1,7 @@
 export interface IReportsData {
   id: number;
   domain: string;
-  reports: Array<IReportsType>;
+  reports: IReportsType[];
 }
 
 export interface IReportsType {
@@ -12,7 +12,20 @@ export interface IReportsType {
 }
 
 export interface IReportsDataState {
-  fetchedData: IReportsData | undefined;
+  fetchedData: IReportsData[];
   loading: boolean;
   error: string | null | undefined;
+}
+
+export interface IChartDate {
+  label: string;
+  data: number[];
+  borderColor: string;
+  backgroundColor: string;
+}
+
+export interface IReportTableData {
+  id: number;
+  domain: string;
+  firstItem: IReportsType;
 }
