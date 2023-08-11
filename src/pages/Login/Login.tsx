@@ -7,11 +7,12 @@ import { loginInitialValues } from "../../constants/initialValues.constants";
 import { LoginFormSchema } from "../../schemas/login/login.schema";
 import { ILoginData } from "../../types/login.type";
 import { sendLoginData } from "../../services/login.service";
+import React from "react";
 
 export default function Login() {
   const handleSubmit = async (data: ILoginData) => {
     const res = await sendLoginData(data);
-    localStorage.setItem("token", JSON.stringify(res.access_token));
+    localStorage.setItem("token", res.access_token);
   };
 
   return (
