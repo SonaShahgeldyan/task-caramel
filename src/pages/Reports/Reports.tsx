@@ -20,9 +20,9 @@ import {
   IReportTableData,
   IReportsData,
 } from "../../types/reports.type";
-import ReportsTable from "../../components/reports";
+import ReportsTable from "../../components/reportsTable";
 
-function DataFetchingComponent(): JSX.Element {
+function Reports(): JSX.Element {
   const reportsData = useSelector(
     (state: RootState) => state.reports.fetchedData
   );
@@ -104,4 +104,4 @@ function DataFetchingComponent(): JSX.Element {
   );
 }
 
-export default DataFetchingComponent;
+export default Reports;
